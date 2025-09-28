@@ -16,7 +16,35 @@
 
     <main>
 
-    <!-- implementação da solução -->
+     <form method="post">
+        Digite um número inteiro: 
+        <input type="number" name="numero" min="0" required>
+        <input type="submit" value="Calcular Fatorial">
+    </form>
+
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $n = intval($_POST["numero"]); // pega o número e garante que seja inteiro
+            $fatorial = 1;
+            $sequencia = ""; // para mostrar a multiplicação
+
+            if ($n == 0 || $n == 1) {
+                $fatorial = 1;
+                $sequencia = "1";
+            } else {
+                for ($i = $n; $i >= 1; $i--) {
+                    $fatorial *= $i;
+                    $sequencia .= $i;
+                    if ($i > 1) {
+                        $sequencia .= " × ";
+                    }
+                }
+            }
+
+            echo "<h3>Resultado:</h3>";
+            echo "$n! = $sequencia = <strong>$fatorial</strong>";
+        }
+    ?>
      
     </main>
 </body>

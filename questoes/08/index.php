@@ -16,7 +16,18 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <?php
+        echo "<p>";
+
+        // Loop de 1 a 50
+        for ($i = 1; $i <= 50; $i++) {
+            if ($i % 2 != 0) { // verifica se é ímpar
+                echo $i . " ";
+            }
+        }
+
+        echo "</p>";
+    ?>
      
     </main>
 </body>

@@ -16,7 +16,21 @@
 
     <main>
 
-    <!-- implementação da solução -->
+     <form method="post">
+        Digite o valor em metros: 
+        <input type="number" name="metros" step="0.01" required>
+        <input type="submit" value="Converter">
+    </form>
+
+    <?php
+        // Verifica se o formulário foi enviado
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $metros = $_POST["metros"];              // valor digitado
+            $centimetros = $metros * 100;            // conversão
+
+            echo "<p>$metros metro(s) equivalem a <strong>$centimetros centímetros</strong>.</p>";
+        }
+    ?>
      
     </main>
 </body>

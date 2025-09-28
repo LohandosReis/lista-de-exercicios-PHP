@@ -16,7 +16,23 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <form method="post">
+        Tempo em segundos: <input type="number" name="segundos" min="0" required><br><br>
+        <input type="submit" value="Converter">
+    </form>
+
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $totalSegundos = intval($_POST["segundos"]);
+
+            $horas = intdiv($totalSegundos, 3600);
+            $resto = $totalSegundos % 3600;
+            $minutos = intdiv($resto, 60);
+            $segundos = $resto % 60;
+
+            echo "<p>Tempo equivalente: <strong>$horas</strong> hora(s), <strong>$minutos</strong> minuto(s) e <strong>$segundos</strong> segundo(s).</p>";
+        }
+    ?>
      
     </main>
 </body>

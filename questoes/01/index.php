@@ -15,11 +15,27 @@
     </header>
 
     <main>
+     <form method="post">
+        Digite um número: 
+        <input type="number" name="valor" required>
+        <input type="submit" value="Calcular">
+    </form>
 
+    <?php
+        // Verifica se o formulário foi enviado
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $valor = $_POST["valor"];     // recebe o valor digitado
+            $antecessor = $valor - 1;     // calcula o antecessor
+
+            echo "<p>O número digitado foi: <strong>$valor</strong></p>";
+            echo "<p>O antecessor é: <strong>$antecessor</strong></p>";
+        }
+    ?>
+    
     <!-- implementação da solução -->
      
     </main>
 </body>
-
+    
 
 </html>
